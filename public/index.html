@@ -5,16 +5,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Tatang Romadhona</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fira+Code:wght@300&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- Alpine JS -->
+    <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
 </head>
 
-<body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
+<body class="min-h-full font-poppins" x-data="{navbarOpen: false, scrolledFromTop: false}"
+    x-init="window.pageYOffset > 60 ? scrolledFromTop = true : scrolledFromTop = false"
+    @scroll.window="window.pageYOffset > 60 ? scrolledFromTop = true : scrolledFromTop = false" :class="{'overflow-hidden': navbarOpen,
+'overflow-auto':!navbarOpen}">
+
+    <header class="bg-white mx-auto fixed inset-x-0 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-200">
+            <div class="flex items-center justify-between transition-all duration-500"
+                :class="{'h-20':!scrolledFromTop, 'h-16':scrolledFromTop}">
+                <div class="flex w-full justify-between items-center">
+                    <div class="flex items-center">
+                        <img class="transition-all duration-500"
+                            :class="{'h-12':!scrolledFromTop, 'h-10':scrolledFromTop}" src="assets/images/avatar.png"
+                            alt="Workflow">
+                        <a class="pl-3 font-dm-serif text-gray-600 transition-all duration-500"
+                            :class="{'text-4xl':!scrolledFromTop, 'text-3xl':scrolledFromTop}">tatang.</a>
+                    </div>
+
+                    <nav>
+                        <button class="md:hidden" @click="navbarOpen = !navbarOpen">
+                            <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                        <ul class="fixed left-0 right-0 min-h-screen bg-white space-y-4 p-4 transition-all duration-500 transform translate-x-full md:relative md:flex md:min-h-0 md:space-y-0 md:space-x-6 md:p-0 md:translate-x-0"
+                            :class="{'translate-x-full':!navbarOpen, 'translate-x-0':navbarOpen}">
+                            <li>
+                                <a href="#section-1"
+                                    class="text-gray-700 hover:text-indigo-600 hover:border-indigo-600 px-3 py-2">Redsection</a>
+                            </li>
+                            <li>
+                                <a href="#section-2"
+                                    class="text-gray-700 hover:text-indigo-600 hover:border-indigo-600 px-3 py-2">Yellowsection</a>
+                            </li>
+                            <li>
+                                <a href="#section-3"
+                                    class="text-gray-700 hover:text-indigo-600 hover:border-indigo-600 px-3 py-2">Greensection</a>
+                            </li>
+                            <li>
+                                <a href="#section-4"
+                                    class="text-gray-700 hover:text-indigo-600 hover:border-indigo-600 px-3 py-2">Bluesection</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-20">
+        <section id="section-1" class="min-h-screen bg-red-100">
+        </section>
+
+        <section id="section-2" class="min-h-screen bg-yellow-100">
+        </section>
+
+        <section id="section-3" class="min-h-screen bg-green-100">
+        </section>
+
+        <section id="section-4" class="min-h-screen bg-blue-100">
+        </section>
+    </section>
 </body>
 
 </html>
